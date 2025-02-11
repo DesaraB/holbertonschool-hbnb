@@ -56,6 +56,7 @@ A **high-level package diagram** is included in this repository to visually repr
 
 ### **Detailed Class Diagram for Business Logic Layer**
 The class diagram for the Business Logic Layer consists of four main entities: User, Place, Review, and Amenity.
+![Baseclass drawio](https://github.com/user-attachments/assets/a7975db8-acfa-4c16-a328-2f18ff1cca85)
 #### **1. Base Class**  
 The `Base Class` serves as the foundation for all other entities. It provides the following common attributes:  
 - `ID (uuid)`: A unique identifier for each object.  
@@ -123,4 +124,3 @@ The `Amenity` class represents facilities or services available at a place, such
 - **Place to Amenity (1 → *)**: A place can have multiple amenities.  
 - **Review to User (1 → *)**: A user can write multiple reviews.
 
-  ![Baseclass drawio](https://github.com/user-attachments/assets/a7975db8-acfa-4c16-a328-2f18ff1cca85)
