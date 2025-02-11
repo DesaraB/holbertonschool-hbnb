@@ -1,3 +1,4 @@
+
 # HBnB - Technical Documentation
 
 ## Overview  
@@ -25,3 +26,4 @@ HBnB is a web-based application that allows users to manage rental properties, r
 ### **Amenity Management**  
 - Amenities have a **name and description**.  
 - Users can **add, modify, remove, and list** amenities associated with properties. 
+![HBNB drawio](https://github.com/user-attachments/assets/9e723aea-567c-46b8-a5bd-68c45d3ead3c)
