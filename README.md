@@ -1,39 +1,27 @@
-HBnB - Technical Documentation
+# HBnB - Technical Documentation
 
-Overview and Purpose
+## Overview  
+HBnB is a web-based application that allows users to manage rental properties, reviews, and amenities. This document outlines the system’s architecture, core functionalities, and design principles. The application follows a **layered architecture**, ensuring a clear separation between the presentation layer, business logic, and data persistence.  
 
-This document provides a detailed overview of the technical architecture of the HBnB application. It outlines the system’s structure, key components, and interactions. The application allows users to manage properties, reviews, and amenities while maintaining a well-organized and scalable design. UML diagrams are included to illustrate how different system layers interact.
+## Features  
 
-Problem Statement
+### **User Management**  
+- Users can **sign up, log in, and update their profile**.  
+- Each user has a **first name, last name, email, and password**.  
+- Some users can be designated as **administrators**.  
+- Users have the ability to **delete their accounts**.  
 
-HBnB is a web-based platform that enables users to list, manage, and review rental properties. The main features of the system include:
-User Management – Users can register, log in, and modify their profiles.
-Property Management – Property owners can create and update listings with details such as title, description, and available amenities.
-Review System – Users can leave reviews and ratings for properties they have visited.
-Amenity Management – Various amenities (e.g., Wi-Fi, parking) can be added to properties.
-The application is built using a layered architecture, ensuring a clear separation between the user interface, business logic, and data storage.
+### **Property Management**  
+- Users can **create, update, and delete properties**.  
+- Each property includes a **title, description, price, latitude, and longitude**.  
+- Properties are linked to the **user (owner) who created them**.  
+- Properties can have **multiple amenities**.  
 
-System Requirements and Business Rules
+### **Review System**  
+- Users can **leave reviews and ratings** for properties they have visited.  
+- Reviews are associated with both a **specific user and property**.  
+- Reviews can be **created, updated, deleted, and viewed**.  
 
-User Model
-
-Users have a first name, last name, email, and password.
-A user can be assigned an administrator role using a boolean flag.
-Users can register, update profile details, and delete their accounts.
-
-Property (Place) Model
-
-Each property has a title, description, price per night, latitude, and longitude.
-Properties are linked to the user who created them (owner).
-Users can add, update, remove, and view property listings.
-Properties can be associated with multiple amenities.
-Review Model
-
-Reviews are linked to both a specific user and property.
-Each review includes a rating and a written comment.
-Users can create, update, delete, and view reviews for properties.
-
-Amenity Model
-
-Amenities have a name and description.
-Users can add, modify, remove, and list amenities for properties.
+### **Amenity Management**  
+- Amenities have a **name and description**.  
+- Users can **add, modify, remove, and list** amenities associated with properties. 
