@@ -2,7 +2,12 @@
 # HBnB - Technical Documentation
 
 ## Overview  
-HBnB is a web-based application that allows users to manage rental properties, reviews, and amenities. This document outlines the system’s architecture, core functionalities, and design principles. The application follows a **layered architecture**, ensuring a clear separation between the presentation layer, business logic, and data persistence.  
+HBnB is a web-based platform designed to simplify the process of managing rental properties, user reviews, and available amenities. The system provides a structured way for users to register, list properties, leave reviews, and manage various amenities associated with rental places.
+The application is built using a layered architecture, which helps separate different concerns within the system:
+## Presentation Layer – Handles user interactions through APIs and ensures smooth communication with the backend.
+## Business Logic Layer – Implements the core functionality, such as processing user data, managing property listings, and enforcing system rules.
+## Data Persistence Layer – Responsible for storing and retrieving data efficiently, ensuring consistency and reliability.
+This structured approach improves scalability, maintainability, and security, making it easier to extend the system with new features in the future. The design also follows object-oriented principles, making the codebase modular and easy to manage.
 
 ## Features  
 
