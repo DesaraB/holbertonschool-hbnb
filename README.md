@@ -154,3 +154,24 @@ When a user wants to register on the application, the following steps occur:
 This flow ensures that the user's registration is secure and all data is handled efficiently.![User Registration-Page-4 drawio](https://github.com/user-attachments/assets/e6d8b0ca-b03e-4ec9-bbbb-d23eddd01380)
 
 
+# Place Creation Flow
+When a registered user wants to create a new place (e.g., an apartment or listing), the following steps occur:
+1. **User Input**: The user fills in the necessary details for the place they want to create, such as:
+   - Title of the place
+   - Description
+   - Address
+   - Other relevant information
+2. **Request to API**: The user submits the details via a request to the API.
+3. **User Existence Verification**: Before proceeding with place creation, the API first verifies whether the user exists in the database.
+   - The API queries the business logic layer to check if the user is in the system.
+   - The business logic layer communicates with the database to confirm the user's existence.
+4. **Place Creation**: If the user is found, the API proceeds with the creation process by passing the place details to the place management model.
+   - The model stores the place information in the database.
+5. **Database Confirmation**: After the place is successfully stored, the database sends back a confirmation to the system.
+6. **Final Response to User**: The API then notifies the user:
+   - Confirming that the place has been successfully created
+   - Or informing them of any errors that may have occurred during the process (e.g., missing data, database issues).
+This process ensures that only registered users can create places, and all relevant information is stored securely.
+![BusinessLogic drawio](https://github.com/user-attachments/assets/7f69631c-78cf-4c3a-aef9-0ec9bff86571)
+
+
