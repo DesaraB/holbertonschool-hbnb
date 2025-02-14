@@ -182,26 +182,11 @@ This process ensures that all interactions between the user, application layers,
 ![ReviewSub drawio](https://github.com/user-attachments/assets/23490210-abef-46e5-9d08-7d6651e1fe46)
 
 # Fetching a List of Places - Sequence Diagram
-In the "Fetching a List of Places" process, a user requests a list of places from the HBnB application based on certain criteria (e.g., location, price range, amenities). The sequence diagram illustrates the interaction between the **Presentation Layer**, **Business Logic Layer**, and **Persistence Layer** to fulfill the user's request.
-1. **User Request**:
-   - The user interacts with the application interface (Presentation Layer) to specify the criteria for the list of places they are looking for (e.g., location, price, type).
-   - The user submits the request to the API.
-2. ![Fetchinglist drawio](https://github.com/user-attachments/assets/f538ada0-4b3b-4349-a9ac-470cca024100)
-**Presentation Layer (API)**:
-   - The API receives the request and validates the input data, ensuring that the criteria are properly formatted.
-   - Once validated, the API forwards the request to the Business Logic Layer for further processing.
-3. **Business Logic Layer (Models)**:
-   - The Business Logic Layer receives the request and processes the criteria to fetch the relevant places.
-   - It may apply additional business rules, such as filtering results based on availability or other constraints.
-   - The Business Logic Layer then queries the Persistence Layer (Database) to retrieve the list of places that match the specified criteria.
-4. **Persistence Layer (Database)**:
-   - The database processes the query and retrieves the relevant places that meet the user's criteria.
-   - Once the data is retrieved, the database sends the list of places back to the Business Logic Layer.
-5. **Business Logic Layer Response**:
-   - The Business Logic Layer processes the received data and may format it as needed.
-   - It then sends the list of places to the Presentation Layer (API).
-6. **API Response to User**:
-   - The API responds to the user with the list of places that match the provided criteria, or it informs the user if no results were found.
-This process illustrates the flow of information through the system layers, from the user's request to the final response containing the list of places, ensuring efficient handling and delivery of data.
+In the "Fetching a List of Places" process, a user requests a list of places from the HBnB application based on certain criteria, such as location, price range, or amenities. The sequence diagram illustrates the interaction between the Presentation Layer, Business Logic Layer, and Persistence Layer to handle this request.
+The user interacts with the application interface (Presentation Layer) to specify the criteria for the list of places they are looking for, such as location or price. After the user submits the request, the API in the Presentation Layer receives it and validates the input data, ensuring that the criteria are properly formatted. Once validated, the request is forwarded to the Business Logic Layer for further processing.
+The Business Logic Layer processes the criteria and may apply additional business rules, such as filtering based on availability or other constraints. It then queries the Persistence Layer (Database) to retrieve the list of places that match the criteria. The database processes the query and returns the relevant places back to the Business Logic Layer.
+Once the Business Logic Layer receives the data, it formats it as needed and sends the list of places to the API. Finally, the API responds to the user with the list of places that match the specified criteria or informs them if no results were found.
+This process ensures that the flow of information between the different layers of the application is smooth, efficiently handling user requests and delivering the appropriate data.
+
 ![Fetchinglist drawio](https://github.com/user-attachments/assets/49633450-c30d-4023-8284-b599715b3d20)
 
