@@ -135,35 +135,12 @@ The `Amenity` class represents facilities or services available at a place, such
 
 
 # User Registration Process
-When a user wants to register on the application, the following steps occur:
-**User Input**: The user fills in their details, including:
-   - Name
-   - Email
-   - Password
-**Request to API**: The user submits a request to the API with their information.
-**API Receives Data**: The API receives the user input and forwards it to the business logic layer for validation.
-**Data Validation**: The business logic layer checks:
-   - Whether the data is in the correct format
-   - Whether the email is unique
-   - Whether the password meets security requirements
-**Database Interaction**: Once the data is validated, the information is passed to the database for storage.
-**Database Confirmation**: After successfully storing the user's information, the database returns a confirmation to the system.
-**Final Response**: The system notifies the API that the registration process was successful. The API then sends a response back to the user, informing them:
-   - Whether their account has been created successfully
-   - Or if any errors occurred during the process (e.g., invalid data, email already taken).
-This flow ensures that the user's registration is secure and all data is handled efficiently.![User Registration-Page-4 drawio](https://github.com/user-attachments/assets/e6d8b0ca-b03e-4ec9-bbbb-d23eddd01380)
+When a user wants to register on the application, they fill in their details such as name, email, and password and send a request to the API. The API receives this information and passes it to the business logic layer to verify if the data is valid and correctly formatted. Once everything is confirmed to be in order, the system sends the information to the database to be stored. When the storage process is successfully completed, the database returns a confirmation to the system, which then notifies the API that the registration has been successful. Finally, the API sends a response back to the user, informing them that their account has been created or notifying them of any errors that may have occurred during the process.
+![User Registration-Page-4 drawio](https://github.com/user-attachments/assets/e6d8b0ca-b03e-4ec9-bbbb-d23eddd01380)
 
 
 # Place Creation Flow
-When a registered user wants to create a new place (e.g., an apartment or listing), the following steps occur:
-**User Input**: The user fills in the necessary details for the place they want to create, such as: title of the place, description, address, other relevant information
-**Request to API**: The user submits the details via a request to the API.
-**User Existence Verification**: Before proceeding with place creation, the API first verifies whether the user exists in the database. The API queries the business logic layer to check if the user is in the system. The business logic layer communicates with the database to confirm the user's existence.
-**Place Creation**: If the user is found, the API proceeds with the creation process by passing the place details to the place management model.The model stores the place information in the database.
-**Database Confirmation**: After the place is successfully stored, the database sends back a confirmation to the system.
-**Final Response to User**: The API then notifies the user:
-Confirming that the place has been successfully created or informing them of any errors that may have occurred during the process (e.g., missing data, database issues).
-This process ensures that only registered users can create places, and all relevant information is stored securely.
+Once a user is registered and wants to create a new place, such as an apartment or a listing, they fill in the necessary details and send a request to the API. Before proceeding with the creation of the place, the API first verifies whether the user exists in the database. To do this, it queries the business logic layer, which then communicates with the database to check for the user's existence. If the user is found, the API continues with the creation process by passing the place details to the place management model, which then stores this information in the database. Once the place is successfully stored, the database sends back a confirmation, and the API notifies the user that the place has been created successfully or informs them of any errors that may have occurred.
 ![BusinessLogic drawio](https://github.com/user-attachments/assets/7f69631c-78cf-4c3a-aef9-0ec9bff86571)
 
 # Review Submission Process
