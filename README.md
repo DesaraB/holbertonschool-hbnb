@@ -136,19 +136,19 @@ The `Amenity` class represents facilities or services available at a place, such
 
 # User Registration Process
 When a user wants to register on the application, the following steps occur:
-1. **User Input**: The user fills in their details, including:
+**User Input**: The user fills in their details, including:
    - Name
    - Email
    - Password
-2. **Request to API**: The user submits a request to the API with their information.
-3. **API Receives Data**: The API receives the user input and forwards it to the business logic layer for validation.
-4. **Data Validation**: The business logic layer checks:
+**Request to API**: The user submits a request to the API with their information.
+**API Receives Data**: The API receives the user input and forwards it to the business logic layer for validation.
+**Data Validation**: The business logic layer checks:
    - Whether the data is in the correct format
    - Whether the email is unique
    - Whether the password meets security requirements
-5. **Database Interaction**: Once the data is validated, the information is passed to the database for storage.
-6. **Database Confirmation**: After successfully storing the user's information, the database returns a confirmation to the system.
-7. **Final Response**: The system notifies the API that the registration process was successful. The API then sends a response back to the user, informing them:
+**Database Interaction**: Once the data is validated, the information is passed to the database for storage.
+**Database Confirmation**: After successfully storing the user's information, the database returns a confirmation to the system.
+**Final Response**: The system notifies the API that the registration process was successful. The API then sends a response back to the user, informing them:
    - Whether their account has been created successfully
    - Or if any errors occurred during the process (e.g., invalid data, email already taken).
 This flow ensures that the user's registration is secure and all data is handled efficiently.![User Registration-Page-4 drawio](https://github.com/user-attachments/assets/e6d8b0ca-b03e-4ec9-bbbb-d23eddd01380)
@@ -156,22 +156,37 @@ This flow ensures that the user's registration is secure and all data is handled
 
 # Place Creation Flow
 When a registered user wants to create a new place (e.g., an apartment or listing), the following steps occur:
-1. **User Input**: The user fills in the necessary details for the place they want to create, such as:
+**User Input**: The user fills in the necessary details for the place they want to create, such as:
    - Title of the place
    - Description
    - Address
    - Other relevant information
-2. **Request to API**: The user submits the details via a request to the API.
-3. **User Existence Verification**: Before proceeding with place creation, the API first verifies whether the user exists in the database.
+**Request to API**: The user submits the details via a request to the API.
+**User Existence Verification**: Before proceeding with place creation, the API first verifies whether the user exists in the database.
    - The API queries the business logic layer to check if the user is in the system.
    - The business logic layer communicates with the database to confirm the user's existence.
-4. **Place Creation**: If the user is found, the API proceeds with the creation process by passing the place details to the place management model.
+**Place Creation**: If the user is found, the API proceeds with the creation process by passing the place details to the place management model.
    - The model stores the place information in the database.
-5. **Database Confirmation**: After the place is successfully stored, the database sends back a confirmation to the system.
-6. **Final Response to User**: The API then notifies the user:
+**Database Confirmation**: After the place is successfully stored, the database sends back a confirmation to the system.
+**Final Response to User**: The API then notifies the user:
    - Confirming that the place has been successfully created
    - Or informing them of any errors that may have occurred during the process (e.g., missing data, database issues).
 This process ensures that only registered users can create places, and all relevant information is stored securely.
 ![BusinessLogic drawio](https://github.com/user-attachments/assets/7f69631c-78cf-4c3a-aef9-0ec9bff86571)
+
+# Review Submission Process
+In the "Review Submission" process, a user submits a review for a place (e.g., an apartment or listing) in the HBnB application. The sequence of events unfolds as follows:
+1. The user starts by filling out the review form and submitting a request with the review details, including text and rating for the place.
+2. The API receives the request and validates the provided data, ensuring that all required fields are filled out and properly formatted.
+3. If the data is valid, the API passes the request to the Business Logic Layer for further processing.
+4. The Business Logic Layer verifies whether the user has permission to submit a review for the place and checks whether the place exists in the database.
+5. If everything is in order, the Business Logic Layer creates a new review object and prepares it for storage.
+6. The review object is then sent to the Persistence Layer (Database), where the review is stored, linking it to the relevant place.
+7. After successfully storing the review, the database sends a confirmation response back to the Business Logic Layer.
+8. The Business Logic Layer processes the confirmation and sends a success message back to the API.
+9. Finally, the API responds to the user, confirming that their review has been successfully submitted and stored, or notifying them of any errors encountered during the process, such as missing data or an invalid place.
+This process ensures that all interactions between the user, application layers, and database are handled securely and efficiently.
+
+![ReviewSub drawio](https://github.com/user-attachments/assets/23490210-abef-46e5-9d08-7d6651e1fe46)
 
 
