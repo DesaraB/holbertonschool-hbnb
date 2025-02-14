@@ -133,3 +133,24 @@ The `Amenity` class represents facilities or services available at a place, such
 - **Place to Amenity (1 → *)**: A place can have multiple amenities.  
 - **Review to User (1 → *)**: A user can write multiple reviews.
 
+
+# User Registration Process
+When a user wants to register on the application, the following steps occur:
+1. **User Input**: The user fills in their details, including:
+   - Name
+   - Email
+   - Password
+2. **Request to API**: The user submits a request to the API with their information.
+3. **API Receives Data**: The API receives the user input and forwards it to the business logic layer for validation.
+4. **Data Validation**: The business logic layer checks:
+   - Whether the data is in the correct format
+   - Whether the email is unique
+   - Whether the password meets security requirements
+5. **Database Interaction**: Once the data is validated, the information is passed to the database for storage.
+6. **Database Confirmation**: After successfully storing the user's information, the database returns a confirmation to the system.
+7. **Final Response**: The system notifies the API that the registration process was successful. The API then sends a response back to the user, informing them:
+   - Whether their account has been created successfully
+   - Or if any errors occurred during the process (e.g., invalid data, email already taken).
+This flow ensures that the user's registration is secure and all data is handled efficiently.![User Registration-Page-4 drawio](https://github.com/user-attachments/assets/e6d8b0ca-b03e-4ec9-bbbb-d23eddd01380)
+
+
