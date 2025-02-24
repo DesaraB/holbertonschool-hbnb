@@ -71,3 +71,19 @@ class Place(BaseModel):
         if not isinstance(amenity, Amenity):
             raise TypeError("Amenity must be an instance of Amenity")
         self.amenities.append(amenity)
+
+    def to_dict(self):
+        place_dict = super().to_dict()
+        place_dict.update({
+            'title': self.title,
+            'description': self.description,
+            'price': self.price,
+            'latitude': self.latitude,
+            'longitude': self.longitude,
+            'owner': self.owner.id,
+            'reviews': self.reviews,
+            'amenities': self.amenities
+            #'reviews': [review.id for review in self.reviews],
+            #'amenities': [amenity.id for amenity in self.amenities]
+        })
+        return place_dict
