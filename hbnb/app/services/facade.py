@@ -1,6 +1,5 @@
-from app.models.user import User
 from app.persistence.repository import InMemoryRepository
-
+from app.models.user import User
 
 class HBnBFacade:
     def __init__(self):
@@ -16,3 +15,9 @@ class HBnBFacade:
 
     def get_user_by_email(self, email):
         return self.user_repo.get_by_attribute('email', email)
+
+    def get_all_users(self):
+        return self.user_repo.get_all()
+    
+    def update_user(self, user):
+        return self.user_repo.update(user.id, user.to_dict())
