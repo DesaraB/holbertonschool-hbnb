@@ -1,48 +1,23 @@
-from app.models.base import BaseModel
+from app.persistence.repository import InMemoryRepository
+from app.models.user import User
 
+class HBnBFacade:
+    def __init__(self):
+        self.user_repo = InMemoryRepository()
 
-class User(BaseModel):
-    def __init__(self, first_name, last_name, email, password="", is_admin=False):
-        super().__init__()
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email = email
-        self.password = password
-        self.is_admin = is_admin
+    def create_user(self, user_data):
+        user = User(**user_data)
+        self.user_repo.add(user)
+        return user
 
-    @property
-    def first_name(self):
-        return self._first_name
+    def get_user(self, user_id):
+        return self.user_repo.get(user_id)
 
-    @first_name.setter
-    def first_name(self, first_name):
-        if not isinstance(first_name, str):
-            raise TypeError("First name must be a string")
-        self._first_name = first_name
+    def get_user_by_email(self, email):
+        return self.user_repo.get_by_attribute('email', email)
 
-    @property
-    def last_name(self):
-        return self._last_name
-
-    @last_name.setter
-    def last_name(self, last_name):
-        if not isinstance(last_name, str):
-            raise TypeError("Last name must be a string")
-        self._last_name = last_name
-
-    @property
-    def email(self):
-        return self._email
-
-    @email.setter
-    def email(self, email):
-        if not isinstance(email, str):
-            raise TypeError("Email must be a string")
-        self._email = email
-
-    @property
-    def password(self):
-        return self._password
+    def get_all_users(self):
+        return self.user_repo.get_all()
     
     @password.setter
     def password(self, password):
